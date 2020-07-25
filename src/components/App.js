@@ -10,6 +10,10 @@ class App extends Component {
      };
   }
 
+  componentDidMount() {
+    this.loginStatus()
+  }
+
   handleLogin = (data) => {
     this.setState({
       isLoggedIn: true,
