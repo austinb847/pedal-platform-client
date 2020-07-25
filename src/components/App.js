@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import Home from './Home'
+import Login from './registrations/Login'
+import Signup from './registrations/Signup'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +32,7 @@ class App extends Component {
   }
 
   loginStatus = () => {
-    axios.get('http://localhost:3001/logged_in', 
+    axios.get('http://localhost:3001/api/v1/logged_in', 
    {withCredentials: true})
     .then(response => {
       if (response.data.logged_in) {
@@ -45,9 +49,9 @@ class App extends Component {
       <div>
          <BrowserRouter>
           <Switch>
-            <Route exact path='/' component={}/>
-            <Route exact path='/login' component={}/>
-            <Route exact path='/signup' component={}/>
+            <Route exact path='/' component={Home}/>
+            <Route exact path='/login' component={Login}/>
+            <Route exact path='/signup' component={Signup}/>
           </Switch>
         </BrowserRouter>
       </div>
