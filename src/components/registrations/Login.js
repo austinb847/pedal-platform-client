@@ -12,6 +12,11 @@ class Login extends Component {
       errors: ''
      };
   }
+
+  componentWillMount() {
+    return this.props.loggedInStatus ? this.redirect() : null
+  }
+
   handleChange = (event) => {
     const {name, value} = event.target
     this.setState({
@@ -21,12 +26,46 @@ class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    const {username, email, password} = this.state
+    let user = {
+      username: username,
+      email: email,
+      password: password
+    };
+      
+    axios.post('http://localhost:3001/api/v1/login', {user}, {withCredentials: true})
+    .then(response => {
+      if (response.data.logged_in) {
+        this.props.handleLogin(response.data)
+        this.redirect()
+      } else {
+        this.setState({
+          errors: response.data.errors
+        })
+      }
+    })
+    .catch(error => console.log('api errors:', error))
   };
 
+  redirect = () => {
+      this.props.history.push('/')
+  };
 
-render() {
-  const {username, email, password} = this.state
-  return (
+  handleErrors = () => {
+    return (
+      <div>
+        <ul>
+        {this.state.errors.map(error => {
+        return <li key={error}>{error}</li>
+          })
+        }
+        </ul>
+      </div>
+    )
+  }
+  render() {
+    const {username, email, password} = this.state
+    return (
       <div>
         <h1>Log In</h1>
         <form onSubmit={this.handleSubmit}>
@@ -51,17 +90,21 @@ render() {
             value={password}
             onChange={this.handleChange}
           />
-        <button placeholder="submit" type="submit">
+          <button placeholder="submit" type="submit">
             Log In
-        </button>
-        <div>
-          or <Link to='/signup'>sign up</Link>
-        </div>
+          </button>
+          <div>
+            or <Link to='/signup'>sign up</Link>
+          </div>
           
-        </form>
+          </form>
+          <div>
+          {
+            this.state.errors ? this.handleErrors() : null
+          }
+        </div>
       </div>
     );
   }
 }
-
 export default Login;
