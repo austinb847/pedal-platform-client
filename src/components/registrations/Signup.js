@@ -78,6 +78,7 @@ return (
             name="password"
             value={password}
             onChange={this.handleChange}
+            autoComplete="on"
           />
           <input
             placeholder="password confirmation"
@@ -85,6 +86,7 @@ return (
             name="password_confirmation"
             value={password_confirmation}
             onChange={this.handleChange}
+            autoComplete="on"
           />
         
           <button placeholder="submit" type="submit">

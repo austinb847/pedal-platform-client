@@ -3,9 +3,9 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 
 const Header = (props) => {
-  
+
   const handleClick = () => {
-      axios.delete('http://localhost:3001/logout', {withCredentials: true})
+      axios.delete('http://localhost:3001/api/v1/logout', {withCredentials: true})
       .then(response => {
         props.handleLogout()
         props.history.push('/')
@@ -15,7 +15,11 @@ const Header = (props) => {
 return (
    
     <div>
-      <Link to='/login'>Log In</Link>
+      {
+        !props.loggedInStatus ?
+        <Link to='/login'>Log In</Link> :
+        null
+      }
       <br></br>
       <Link to='/signup'>Sign Up</Link>
       <br></br>

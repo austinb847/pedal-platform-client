@@ -13,7 +13,7 @@ class Login extends Component {
      };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     return this.props.loggedInStatus ? this.redirect() : null
   }
 
@@ -89,6 +89,7 @@ class Login extends Component {
             name="password"
             value={password}
             onChange={this.handleChange}
+            autoComplete="on"
           />
           <button placeholder="submit" type="submit">
             Log In
