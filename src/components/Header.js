@@ -28,6 +28,7 @@ return (
         <Link to='/logout' onClick={handleClick}>Log Out</Link> : 
         null
       }
+      <Link to='/pedals'>All Available Pedals</Link> 
     </div>
   );
 };

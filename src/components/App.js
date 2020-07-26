@@ -4,6 +4,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Home from './Home'
 import Login from './registrations/Login'
 import Signup from './registrations/Signup'
+import Pedals from './Pedals'
 
 class App extends Component {
   constructor(props) {
@@ -60,6 +61,12 @@ render() {
               exact path='/signup' 
               render={props => (
               <Signup {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
+              )}
+            />
+            <Route
+              exact path='/pedals'
+              render={props => (
+                <Pedals {...props} />
               )}
             />
           </Switch>
