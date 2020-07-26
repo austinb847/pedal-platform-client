@@ -16,15 +16,15 @@ export const makePedalApiCall = (url) => {
 }
 
 export const requestPedals = () => ({
-  type: c.REQUEST_ANIMALS
+  type: c.REQUEST_PEDALS
 });
 
-export const getPedalsSuccess = (animals) => ({
-  type: c.GET_ANIMALS_SUCCESS,
-  animals
+export const getPedalsSuccess = (pedals) => ({
+  type: c.GET_PEDALS_SUCCESS,
+  pedals
 });
 
 export const getPedalsFailure = (error) => ({
-  type: c.GET_ANIMALS_FAILURE,
+  type: c.GET_PEDALS_FAILURE,
   error
 });
