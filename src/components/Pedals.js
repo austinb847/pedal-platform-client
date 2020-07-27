@@ -18,6 +18,28 @@ function Pedals(props) {
     return () => {};
   }, []);
 
+  function getPedalsByCategory(type) {
+    switch (type) {
+      case "all":
+        dispatch(a.makePedalApiCall('http://localhost:3001/api/v1/pedals'))
+        break;
+      case "overdrive":
+        dispatch(a.makePedalApiCall('http://localhost:3001/api/v1/overdrive_pedals'))
+        break;
+      case "distortion":
+        dispatch(a.makePedalApiCall('http://localhost:3001/api/v1/distortion_pedals'))
+        break;
+      case "fuzz":
+        dispatch(a.makePedalApiCall('http://localhost:3001/api/v1/fuzz_pedals'))
+        break;
+      case "delay":
+        dispatch(a.makePedalApiCall('http://localhost:3001/api/v1/delay_pedals'))
+        break;
+      default:
+        break;
+    }
+  }
+
 
   if(error) {
     return <p>Error: {error.message}</p>;
@@ -47,19 +69,19 @@ function Pedals(props) {
               style={{ width: 175, margin:10 }}
             />
             <Menu  mode="inline" defaultSelectedKeys={['0']}>
-              <Menu.Item key="0" onClick={() => console.log("clicker")}>
+              <Menu.Item key="0" onClick={() => getPedalsByCategory("all")}>
                 All Pedals
               </Menu.Item>
-              <Menu.Item key="1" onClick={() => console.log("clicker")}>
+              <Menu.Item key="1" onClick={() => getPedalsByCategory("overdrive")}>
                 Overdrive
               </Menu.Item>
-              <Menu.Item key="2">
+              <Menu.Item key="2" onClick={() => getPedalsByCategory("distortion")}>
                 Distortion
               </Menu.Item>
-              <Menu.Item key="3">
+              <Menu.Item key="3" onClick={() => getPedalsByCategory("fuzz")}>
                 Fuzz
               </Menu.Item>
-              <Menu.Item key="4">
+              <Menu.Item key="4" onClick={() => getPedalsByCategory("delay")}>
                 Delay
               </Menu.Item>
               <Menu.Item key="5">
