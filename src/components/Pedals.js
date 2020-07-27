@@ -3,15 +3,15 @@ import { connect } from "react-redux";
 import * as a from "./../actions";
 import { Link } from "react-router-dom";
 import Image from 'react-bootstrap/Image'
-import Container from 'react-bootstrap/Container'
 import Spinner from 'react-bootstrap/Spinner'
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Input } from 'antd';
 
 
 function Pedals(props) {
   const { error, isLoading, pedals } = props.apiResponse;
   const { dispatch } = props;
   const { Sider, Content } = Layout;
+  const { Search } = Input;
 
   useEffect(() => {
     dispatch(a.makePedalApiCall('http://localhost:3001/api/v1/pedals'));
@@ -37,10 +37,19 @@ function Pedals(props) {
                 height: '100vh',
                 position: 'fixed',
                 left: 0,
+                backgroundColor: 'white'
               }}
             >
-            <div className="categories-title">Categories</div>
-            <Menu theme="light" mode="inline">
+            <div className="categories-title" style={{textAlign: 'center', marginTop: 10}}>Categories</div>
+            <Search
+              placeholder="Name or brand"
+              onSearch={value => console.log(value)}
+              style={{ width: 175, margin:10 }}
+            />
+            <Menu  mode="inline" defaultSelectedKeys={['0']}>
+              <Menu.Item key="0" onClick={() => console.log("clicker")}>
+                All Pedals
+              </Menu.Item>
               <Menu.Item key="1" onClick={() => console.log("clicker")}>
                 Overdrive
               </Menu.Item>
