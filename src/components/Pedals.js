@@ -40,6 +40,10 @@ function Pedals(props) {
     }
   }
 
+  function searchPedals(val) {
+    dispatch(a.makePedalApiCall(`http://localhost:3001/api/v1/search?name=${val}`))
+  }
+
 
   if(error) {
     return <p>Error: {error.message}</p>;
@@ -64,8 +68,8 @@ function Pedals(props) {
             >
             <div className="categories-title" style={{textAlign: 'center', marginTop: 80}}>Categories</div>
             <Search
-              placeholder="Name or brand"
-              onSearch={value => console.log(value)}
+              placeholder="Filter by Name"
+              onSearch={value => searchPedals(value)}
               style={{ width: 175, margin:10 }}
             />
             <Menu  mode="inline" defaultSelectedKeys={['0']}>
