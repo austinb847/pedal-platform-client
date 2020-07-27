@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import { Nav, NavDropdown, Button, Navbar } from 'react-bootstrap'
+import headerImage from '../HomeIcon3.png'
 
 const Navigation = (props) => {
 
@@ -14,12 +15,11 @@ const Navigation = (props) => {
       .catch(error => console.log(error))
     }
 return (
-  <Navbar fixed="top" bg="light" expand="lg" className='nav'>
-    {/* <Navbar.Brand href="/"><img src={animal} alt='animal'/></Navbar.Brand> */}
+  <Navbar fixed="top" style={{backgroundColor: '#0ba44d'}} expand="lg" className='nav'>
+    <Navbar.Brand href="/"><img className="nav-icon" src={headerImage} alt='animal'/></Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
-      <Nav.Link href="/">Home</Nav.Link>
         {
            !props.loggedInStatus ?
            <Nav.Link href="/login">Log In</Nav.Link>:
