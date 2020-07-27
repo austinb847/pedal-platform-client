@@ -4,10 +4,14 @@ import * as a from "./../actions";
 import { Link } from "react-router-dom";
 import Image from 'react-bootstrap/Image'
 import Container from 'react-bootstrap/Container'
+import Spinner from 'react-bootstrap/Spinner'
+import { Layout, Menu } from 'antd';
+
 
 function Pedals(props) {
   const { error, isLoading, pedals } = props.apiResponse;
   const { dispatch } = props;
+  const { Sider, Content } = Layout;
 
   useEffect(() => {
     dispatch(a.makePedalApiCall('http://localhost:3001/api/v1/pedals'));
@@ -18,23 +22,76 @@ function Pedals(props) {
   if(error) {
     return <p>Error: {error.message}</p>;
   } else if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+    <Spinner animation="border" role="status">
+      <span className="sr-only">Loading...</span>
+    </Spinner>
+    )
   } else {
     return (
       <React.Fragment>
-        <Container>
-          <div className="row">
-            {pedals.map((pedal, index) => (
-              <div className="column">
-                <div className="pedal-item">
-                  <Image id={index} src={pedal.image_url} width="250px" alt="pedal" thumbnail/>
-                  <div className="pedal-name">{pedal.name}</div>
+        <Layout>
+          <Sider
+              style={{
+                overflow: 'auto',
+                height: '100vh',
+                position: 'fixed',
+                left: 0,
+              }}
+            >
+            <div className="categories-title">Categories</div>
+            <Menu theme="light" mode="inline">
+              <Menu.Item key="1" onClick={() => console.log("clicker")}>
+                Overdrive
+              </Menu.Item>
+              <Menu.Item key="2">
+                Distortion
+              </Menu.Item>
+              <Menu.Item key="3">
+                Fuzz
+              </Menu.Item>
+              <Menu.Item key="4">
+                Delay
+              </Menu.Item>
+              <Menu.Item key="5">
+                Modulation
+              </Menu.Item>
+              <Menu.Item key="6">
+                Reverb
+              </Menu.Item>
+              <Menu.Item key="7">
+                Compression
+              </Menu.Item>
+              <Menu.Item key="8">
+                EQ
+              </Menu.Item>
+              <Menu.Item key="9">
+                Pitch
+              </Menu.Item>
+              <Menu.Item key="10">
+                Other
+              </Menu.Item>
+            </Menu>
+          </Sider>
+        
+          <Layout style={{ marginLeft: 200 }}>
+            <Content style={{ margin: '24px 16px 0', overflow: 'initial'}}>
+              <div style={{ padding: 24, textAlign: 'center'}}>
+                <div className="row">
+                  {pedals.map((pedal, index) => (
+                    <div className="column">
+                      <div className="pedal-item">
+                        <Image key={pedal.id} id={pedal.id} src={pedal.image_url} width="250px" alt="pedal" thumbnail/>
+                        <div className="pedal-name">{pedal.name}</div>
+                      </div>
+                    </div>
+                  ))}
+                  <button onClick= {() => dispatch(a.makePedalApiCall('http://localhost:3001/api/v1/overdrive_pedals'))}></button>
                 </div>
               </div>
-            ))}
-            <button onClick= {() => dispatch(a.makePedalApiCall('http://localhost:3001/api/v1/overdrive_pedals'))}></button>
-          </div>
-        </Container>
+            </Content>
+          </Layout>
+        </Layout>
       </React.Fragment>
     );
   }
