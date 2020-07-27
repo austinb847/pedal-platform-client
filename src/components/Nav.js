@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 
-const Header = (props) => {
+const Nav = (props) => {
 
   const handleClick = () => {
       axios.delete('http://localhost:3001/api/v1/logout', {withCredentials: true})
@@ -32,4 +32,4 @@ return (
     </div>
   );
 };
-export default Header;
+export default Nav;

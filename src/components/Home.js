@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from './Header'
+import Nav from './Nav'
 
 function Home(props) {
   return (
     <div>
-      <Header {...props} handleLogout={props.handleLogout} loggedInStatus={props.loggedInStatus}/>
+      <Nav {...props} handleLogout={props.handleLogout} loggedInStatus={props.loggedInStatus}/>
       <p>Hello World</p>
     </div>
   )

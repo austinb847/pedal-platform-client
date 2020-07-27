@@ -117,7 +117,6 @@ function Pedals(props) {
                       </div>
                     </div>
                   ))}
-                  <button onClick= {() => dispatch(a.makePedalApiCall('http://localhost:3001/api/v1/overdrive_pedals'))}></button>
                 </div>
               </div>
             </Content>
