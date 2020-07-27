@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Home from './Home'
+import Navigation from './Navigation'
 import Login from './registrations/Login'
 import Signup from './registrations/Signup'
 import Pedals from './Pedals'
@@ -44,11 +45,12 @@ render() {
     return (
       <div>
         <BrowserRouter>
+          <Navigation handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
           <Switch>
             <Route 
               exact path='/' 
               render={props => (
-                <Home {...props} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/> //pass prop loggedInStatus={this.state.isLoggedIn}/>)}/>
+                <Home /> //pass prop loggedInStatus={this.state.isLoggedIn}/>)}/>
               )}
             />
             <Route 

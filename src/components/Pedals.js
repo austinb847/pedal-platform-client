@@ -10,7 +10,7 @@ import { Layout, Menu, Input } from 'antd';
 function Pedals(props) {
   const { error, isLoading, pedals } = props.apiResponse;
   const { dispatch } = props;
-  const { Sider, Content } = Layout;
+  const { Header, Sider, Content } = Layout;
   const { Search } = Input;
 
   useEffect(() => {
@@ -62,7 +62,7 @@ function Pedals(props) {
                 backgroundColor: 'white'
               }}
             >
-            <div className="categories-title" style={{textAlign: 'center', marginTop: 10}}>Categories</div>
+            <div className="categories-title" style={{textAlign: 'center', marginTop: 80}}>Categories</div>
             <Search
               placeholder="Name or brand"
               onSearch={value => console.log(value)}
@@ -106,6 +106,9 @@ function Pedals(props) {
           </Sider>
         
           <Layout style={{ marginLeft: 200 }}>
+            <Header style={{ padding: 0, marginTop: 100, backgroundColor: 'white'}}>
+              <h1>Available Pedals</h1>
+            </Header>
             <Content style={{ margin: '24px 16px 0', overflow: 'initial'}}>
               <div style={{ padding: 24, textAlign: 'center'}}>
                 <div className="row">
