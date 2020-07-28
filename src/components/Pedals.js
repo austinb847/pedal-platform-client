@@ -66,7 +66,7 @@ function Pedals(props) {
                 backgroundColor: 'white'
               }}
             >
-            <div className="categories-title" style={{textAlign: 'center', marginTop: 80}}>Categories</div>
+            <div className="categories-title" style={{textAlign: 'center', marginTop: 130}}>Categories</div>
             <Search
               placeholder="Filter by Name"
               onSearch={value => searchPedals(value)}
@@ -110,7 +110,7 @@ function Pedals(props) {
           </Sider>
         
           <Layout style={{ marginLeft: 200 }}>
-            <Header style={{ padding: 0, marginTop: 100, backgroundColor: 'white'}}>
+            <Header style={{ padding: 0, marginTop: 150, backgroundColor: 'white'}}>
               <h1>Available Pedals</h1>
             </Header>
             <Content style={{ margin: '24px 16px 0', overflow: 'initial'}}>

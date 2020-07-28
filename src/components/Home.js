@@ -1,6 +1,7 @@
 import React from 'react'
 import Navigation from './Navigation'
 import headerImage from '../HomeIcon.png'
+import ImageFader from './ImageFader'
 
 function Home(props) {
   return (
@@ -8,6 +9,7 @@ function Home(props) {
       {/* <Navigation {...props} handleLogout={props.handleLogout} loggedInStatus={props.loggedInStatus}/> */}
       <section class="intro">
         <div class="content">
+          <ImageFader/>
           <h1>You can create full screen sections without javascript.</h1>
           <p>The height is set to 90vh, that means 90% height.</p>
         </div>

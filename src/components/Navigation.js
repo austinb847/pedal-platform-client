@@ -19,7 +19,7 @@ return (
     <Navbar.Brand href="/"><img className="nav-icon" src={headerImage} alt='animal'/></Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="mr-auto">
+      <Nav className="ml-auto">
         {
            !props.loggedInStatus ?
            <Nav.Link href="/login">Log In</Nav.Link>:
