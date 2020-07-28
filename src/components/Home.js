@@ -1,6 +1,6 @@
 import React from 'react'
 import Navigation from './Navigation'
-import headerImage from '../HomeIcon.png'
+import instructionsImg from '../instructions.png'
 import ImageFader from './ImageFader'
 import Button from 'react-bootstrap/Button'
 
@@ -18,7 +18,8 @@ function Home(props) {
 
       <section className="home-section">  
         <div class="content">
-          <h1>Resize your browser and see how they adapt.</h1>
+          <h1>How Pedal Platform works:</h1>
+          <img styles={{textAlign: "center"}}src={instructionsImg}></img>
         </div>
       </section>
 

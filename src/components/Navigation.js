@@ -22,16 +22,16 @@ return (
       <Nav className="ml-auto">
         {
            !props.loggedInStatus ?
-           <Nav.Link href="/login">Log In</Nav.Link>:
+           <Nav.Link style={{color: "white"}} href="/login">Log In</Nav.Link>:
            null
         }
-        <Nav.Link href="/signup">Sign Up</Nav.Link>
+        <Nav.Link style={{color: "white"}} href="/signup">Sign Up</Nav.Link>
         { 
         props.loggedInStatus ? 
-        <Nav.Link href="/logout" onClick={handleClick}>Log Out</Nav.Link> : 
+        <Nav.Link style={{color: "white"}} href="/logout" onClick={handleClick}>Log Out</Nav.Link> : 
         null
         }
-        <Nav.Link href="/pedals">All Available Pedals</Nav.Link>
+        <Nav.Link style={{color: "white"}} href="/pedals">All Available Pedals</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
