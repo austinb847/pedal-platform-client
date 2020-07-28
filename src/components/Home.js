@@ -2,6 +2,7 @@ import React from 'react'
 import Navigation from './Navigation'
 import headerImage from '../HomeIcon.png'
 import ImageFader from './ImageFader'
+import {Button} from 'react-bootstrap'
 
 function Home(props) {
   return (
@@ -10,8 +11,7 @@ function Home(props) {
       <section class="intro">
         <div class="content">
           <ImageFader/>
-          <h1>You can create full screen sections without javascript.</h1>
-          <p>The height is set to 90vh, that means 90% height.</p>
+          <h1 class="home-img-text">Helping Musicians Discover Their Sound Since 2020</h1>
         </div>
       </section>
 

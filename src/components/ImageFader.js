@@ -17,7 +17,7 @@ function ImageFader() {
     leave: { opacity: 0 },
     config: config.molasses,
   })
-  useEffect(() => void setInterval(() => set(state => (state + 1) % 4), 10000), [])
+  useEffect(() => void setInterval(() => set(state => (state + 1) % 4), 5000), [])
 
 
   return transitions.map(({ item, props, key }) => (
