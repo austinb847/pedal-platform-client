@@ -2,7 +2,7 @@ import React from 'react'
 import Navigation from './Navigation'
 import headerImage from '../HomeIcon.png'
 import ImageFader from './ImageFader'
-import {Button} from 'react-bootstrap'
+import Button from 'react-bootstrap/Button'
 
 function Home(props) {
   return (
@@ -11,7 +11,8 @@ function Home(props) {
       <section class="intro">
         <div class="content">
           <ImageFader/>
-          <h1 class="home-img-text">Helping Musicians Discover Their Sound Since 2020</h1>
+          <h1 class="home-img-text">Helping Musicians Discover Their Sound</h1>
+          <Button variant="success"className="button-img-text"href="#">See Subscription Plans</Button>
         </div>
       </section>
 
