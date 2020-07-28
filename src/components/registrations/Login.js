@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import { Form, Button } from 'react-bootstrap';
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      username: '',
       email: '',
       password: '',
       errors: ''
@@ -62,13 +62,38 @@ class Login extends Component {
         </ul>
       </div>
     )
-  }
+  };
+
+
   render() {
-    const {username, email, password} = this.state
+    const {email, password} = this.state
+    
     return (
-      <div>
+      <div className="login-form-container">
         <h1>Log In</h1>
-        <form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" name ="email" value = {email} onChange={this.handleChange} required/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" name = "password" value = {password} onChange={this.handleChange} required/>
+          </Form.Group>
+          <Form.Group controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Remember me" />
+          </Form.Group>
+          <Button variant="success" type="submit">
+            Log In
+          </Button>
+        </Form>
+        <div>
+            or <Link to='/signup'>Sign up</Link>
+        </div>
+
+        {/* <h1>Log In</h1>
+        <Form onSubmit={this.handleSubmit}>
           <input
             placeholder="username"
             type="text"
@@ -98,12 +123,12 @@ class Login extends Component {
             or <Link to='/signup'>sign up</Link>
           </div>
           
-          </form>
+          </Form> */}
           <div>
           {
             this.state.errors ? this.handleErrors() : null
           }
-        </div>
+          </div>
       </div>
     );
   }
