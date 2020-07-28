@@ -44,6 +44,7 @@ function Pedals(props) {
     dispatch(a.makePedalApiCall(`http://localhost:3001/api/v1/search?name=${val}`))
   }
 
+  
 
   if(error) {
     return <p>Error: {error.message}</p>;
@@ -109,17 +110,18 @@ function Pedals(props) {
             </Menu>
           </Sider>
         
-          <Layout style={{ marginLeft: 200 }}>
+          <Layout style={{ marginLeft: 200, backgroundColor: 'white'}}>
             <Header style={{ padding: 0, marginTop: 150, backgroundColor: 'white'}}>
-              <h1>Available Pedals</h1>
+              <h1 style={{ textAlign: 'center'}}>Available Pedals</h1>
             </Header>
             <Content style={{ margin: '24px 16px 0', overflow: 'initial'}}>
+          
               <div style={{ padding: 24, textAlign: 'center'}}>
                 <div className="row">
                   {pedals.map((pedal, index) => (
                     <div className="column">
                       <div className="pedal-item">
-                        <Image key={pedal.id} id={pedal.id} src={pedal.image_url} width="250px" alt="pedal" thumbnail/>
+                        <Image key={pedal.id} id={pedal.id} src={pedal.image_url} width="250px" alt="pedal" onClick={() => props.history.push(`/pedals/${pedal.id}`)} thumbnail/>
                         <div className="pedal-name">{pedal.name}</div>
                       </div>
                     </div>
