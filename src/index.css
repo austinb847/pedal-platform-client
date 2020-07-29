@@ -40,6 +40,12 @@ body {
   height: 100vh;
 }
 
+.about-content {
+  /* margin: 50px auto 0; */
+  display: table-cell;
+  vertical-align: middle;
+}
+
 .home-section:nth-of-type(2n) {
   background-color: white;
 }
@@ -105,12 +111,22 @@ body {
 
 .pedal-detail-container {
   margin-top: 150px;
-  height: 80vh;
+  /* max-height: 80vh;  */
   background-color: #e2e0e0;
 }
 
 .pedal-image-container {
   background-color: #e2e0e0;
   padding: 30px;
+  /* max-height: 80vh; */
 }
 
+.how-to-image {
+  max-width: 100%;
+  height: auto;
+  width: auto\9;
+}
+
+.pedal-description-container {
+  max-height: 80vh;
+}
