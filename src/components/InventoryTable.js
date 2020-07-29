@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import { connect } from "react-redux";
 import * as a from "./../actions";
 import { Table} from 'antd';
+import Spinner from 'react-bootstrap/Spinner'
 
 function InventoryTable(props) {
   const { error, isLoading, pedals } = props.apiResponse;
@@ -26,11 +27,6 @@ function InventoryTable(props) {
     title: 'Brand',
     dataIndex: 'brand',
     key: 'brand',
-  }, 
-  {
-    title: 'Description',
-    dataIndex: 'description',
-    key: 'description',
   },{
     title: 'Quantity',
     dataIndex: 'quantity',
@@ -39,10 +35,6 @@ function InventoryTable(props) {
     title: 'Featured',
     dataIndex: 'featured',
     key: 'featured',
-  },{
-    title: 'Image Url',
-    dataIndex: 'image_url',
-    key: 'image_url',
   },{
     title: 'Kind',
     dataIndex: 'kind',
@@ -60,19 +52,27 @@ function InventoryTable(props) {
     key: 'action',
     render: (text, record) => (
       <span>
-        <a href="#">Edit</a>
-        <span className="ant-divider" />
+        <a href="#">Edit | </a>
         <a href="#">Delete</a>
-        <span className="ant-divider" />
-      </span>
+    </span>
     ),
   }];
   
+  if(error) {
+    return <p>Error: {error.message}</p>;
+  } else if (isLoading) {
+    return (
+    <Spinner animation="border" role="status">
+      <span className="sr-only">Loading...</span>
+    </Spinner>
+    )
+  } else {
   return (
     <div>
-      <Table columns={columns} dataSource={props.pedals}/>
+      <Table columns={columns} dataSource={pedals}/>
     </div>
   )
+  }
 }
 
 const mapStateToProps = (state) => {
