@@ -52,9 +52,9 @@ function InventoryTable(props) {
     key: 'action',
     render: (text, record) => (
       <span>
-        <a href="#">Edit | </a>
-        <a href="#">Delete</a>
-    </span>
+        <a href="#">Edit </a> | 
+        <a href="#"> Delete</a>
+      </span>
     ),
   }];
   
