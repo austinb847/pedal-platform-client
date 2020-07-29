@@ -6,17 +6,19 @@ import Navigation from './Navigation'
 import Login from './registrations/Login'
 import Signup from './registrations/Signup'
 import Pedals from './Pedals'
+import PedalDetail from './PedalDetail';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
       isLoggedIn: false,
-      user: {}
+      user: {},
+      isAdmin: false
      };
   }
-componentDidMount() {
-    this.loginStatus()
+  componentDidMount() {
+      this.loginStatus()
   }
   loginStatus = () => {
     axios.get('http://localhost:3001/api/v1/logged_in', {withCredentials: true})
@@ -29,17 +31,28 @@ componentDidMount() {
     })
     .catch(error => console.log('api errors:', error))
   }
-handleLogin = (data) => {
-    this.setState({
-      isLoggedIn: true,
-      user: data.user
-    })
+  
+  handleLogin = (data) => {
+    if(data.user.admin) {
+      this.setState({
+        isLoggedIn: true,
+        isAdmin: true,
+        user: data.user
+      })
+    } else {
+      this.setState({
+        isLoggedIn: true,
+        isAdmin: false,
+        user: data.user
+      })
+    }
   }
-handleLogout = () => {
-    this.setState({
-    isLoggedIn: false,
-    user: {}
-    })
+  handleLogout = () => {
+      this.setState({
+      isLoggedIn: false,
+      user: {},
+      isAdmin: false
+      })
   }
 render() {
     return (
@@ -69,6 +82,12 @@ render() {
               exact path='/pedals'
               render={props => (
                 <Pedals {...props} />
+              )}
+            />
+            <Route
+              exact path='/pedals/:id'
+              render={props => (
+                <PedalDetail {...props} />
               )}
             />
           </Switch>
