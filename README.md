@@ -1,68 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# The Pedal Platform v1
 
-## Available Scripts
+#### By Austin Butler
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+The Pedal Platform is a subscription based ecommerce site for guitar players and musicians to be able to rent and try out new effect pedals for their instruments weekly. This app is designed to be a useful tool to help musicians figure out which pedals work best with their rig.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## User Stories
 
-### `npm test`
+* As a user I want to see a welcome page that describes the business and how it works
+* As a user I want to click on featured pedals and see a list of recent Pedals available based on subscription type
+* As a user I want to click on a featured Pedal and see more information about it
+* As a user I want to be able to login and sign up for the service
+* As a user I want to be able to fill out a form for delievery and billing information once I sign up
+* As a logged in user I want to be able to see a list of all available pedals 
+* As a logged in user I want to be able to select a Pedal to rent for the week
+* As a logged in user I want to be able to search for a Pedal by name
+* As a logged in user I want to be able to click on a Category and get a list of all Pedals in that category
+* As an admin I want to be able to add, update, and delete Pedals, and Categorys
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Page Layout
 
-### `npm run build`
+![Page Layout](./public/HomePage.png)
+![Page Layout](./public/FeaturedPedalsPage.png)
+![Page Layout](./public/PricingPage.png)
+![Page Layout](./public/SubscriptionPage.png)
+![Page Layout](./public/AvailablePedalsPage.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Setup/Installation Requirements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* _Navigate to _
+* _Clone the respository to your local machine_
+* _Navigate to the cloned directory and open in your text editor of choice to view code_
+* _Run the command 'npm install' to install all packages used in this project_
+* _Run the command 'npm run start' to start the local server_
+* _Navigate your browser of choice to localhost:3000_
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## API's
+Rails API built to store User data, and Pedal inventory
+API Repo: _https://github.com/austinb847/pedal_platform_api_v1_
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Known Bugs
+* When User logs in and navigates via nav bar, the profile and log out nav button disappear
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Technologies Used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* _Ruby_
+* _Rails_
+* _React_
+* _Redux_
+* _Bootstrap / Antd_
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### License
 
-### Code Splitting
+*Licensed under the MIT license*
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Copyright (c) 2020 **_Austin Butler_**
