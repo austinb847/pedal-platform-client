@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import * as a from "./../actions";
-import { Link } from "react-router-dom";
 import Image from 'react-bootstrap/Image'
 import Spinner from 'react-bootstrap/Spinner'
 import { Layout, Menu, Input } from 'antd';
