@@ -91,44 +91,11 @@ class Login extends Component {
         <div>
             or <Link to='/signup'>Sign up</Link>
         </div>
-
-        {/* <h1>Log In</h1>
-        <Form onSubmit={this.handleSubmit}>
-          <input
-            placeholder="username"
-            type="text"
-            name="username"
-            value={username}
-            onChange={this.handleChange}
-          />
-          <input
-            placeholder="email"
-            type="text"
-            name="email"
-            value={email}
-            onChange={this.handleChange}
-          />
-          <input
-            placeholder="password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-            autoComplete="on"
-          />
-          <button placeholder="submit" type="submit">
-            Log In
-          </button>
-          <div>
-            or <Link to='/signup'>sign up</Link>
-          </div>
-          
-          </Form> */}
-          <div>
-          {
-            this.state.errors ? this.handleErrors() : null
-          }
-          </div>
+        <div>
+        {
+          this.state.errors ? this.handleErrors() : null
+        }
+        </div>
       </div>
     );
   }
