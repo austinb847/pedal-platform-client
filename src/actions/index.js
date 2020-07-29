@@ -18,7 +18,7 @@ export const makePedalApiCall = (url) => {
 export const getSelectedPedal = (id) => {
   return dispatch => {
     dispatch(requestSelectedPedal);
-    return fetch(`http://localhost:3001/api/v1/${id}`)
+    return fetch(`http://localhost:3001/api/v1/pedals/${id}`)
     .then(response => response.json())
     .then(
       (jsonifiedResponse) => {
