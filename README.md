@@ -20,6 +20,12 @@ The Pedal Platform is a subscription based ecommerce site for guitar players and
 * As a logged in user I want to be able to click on a Category and get a list of all Pedals in that category
 * As an admin I want to be able to add, update, and delete Pedals, and Categorys
 
+## Current State of Application
+![Home Page Intro](./public/intro-gif.gif)
+![Home Page How To](./public/howto-gif.gif)
+![Available Pedals Page](./public/available-pedals-gif.gif)
+![Inventory Page](./public/inventory-gif.gif)
+
 ## Page Layout
 
 ![Page Layout](./public/HomePage.png)
