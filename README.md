@@ -37,12 +37,12 @@ The Pedal Platform is a subscription based ecommerce site for guitar players and
 
 ## Setup/Installation Requirements
 
-* _Navigate to _
 * _Clone the respository to your local machine_
 * _Navigate to the cloned directory and open in your text editor of choice to view code_
 * _Run the command 'npm install' to install all packages used in this project_
 * _Run the command 'npm run start' to start the local server_
 * _Navigate your browser of choice to localhost:3000_
+* _For backend functionality to work make sure to open and follow the API repo instructions below_
 
 
 ## API's
